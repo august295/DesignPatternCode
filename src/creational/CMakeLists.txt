@@ -1,0 +1,8 @@
+# 包含子目录
+add_subdirectory(builder)
+add_subdirectory(factory_abstract)
+add_subdirectory(factory_method)
+add_subdirectory(factory_method_advanced)
+add_subdirectory(factory_simple)
+add_subdirectory(prototype)
+add_subdirectory(singleton)
