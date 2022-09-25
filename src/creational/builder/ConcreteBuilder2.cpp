@@ -12,15 +12,15 @@ ConcreteBuilder2::~ConcreteBuilder2()
 
 void ConcreteBuilder2::BuildPartA()
 {
-	PriProduct->SetA("A Style");
+	PriProduct->SetA("ConcreteBuilder2 A Style");
 }
 
 void ConcreteBuilder2::BuildPartB()
 {
-	PriProduct->SetB("B Style");
+	PriProduct->SetB("ConcreteBuilder2 B Style");
 }
 
 void ConcreteBuilder2::BuildPartC()
 {
-	PriProduct->SetC("C Style");
+	PriProduct->SetC("ConcreteBuilder2 C Style");
 }

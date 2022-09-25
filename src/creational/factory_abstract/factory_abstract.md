@@ -1,10 +1,10 @@
-# 抽象工厂
+# 抽象工厂模式
 
 
 
 ## 1 模式的定义
 
-抽象工厂模式（英语：Abstract factory pattern）是一种软件开发设计模式。抽象工厂模式提供了一种方式，可以将一组具有同一主题的单独的工厂封装起来。在正常使用中，客户端程序需要创建抽象工厂的具体实现，然后使用抽象工厂作为接口来创建这一主题的具体对象。客户端程序不需要知道（或关心）它从这些内部的工厂方法中获得对象的具体类型，因为客户端程序仅使用这些对象的通用接口。抽象工厂模式将一组对象的实现细节与他们的一般使用分离开来。
+抽象工厂模式（克隆）是一种创建型设计模式， 使你能够复制已有对象， 而又无需使代码依赖它们所属的类。
 
 
 
@@ -12,17 +12,40 @@
 
 ### 2.1 结构图
 
-![File:Abstract factory UML.svg](factory_abstract.assets/Abstract_factory_UML.svg)
+![Abstract_factory_UML.svg](factory_abstract.assets/Abstract_factory_UML.svg)
 
-### 2.2 结构角色
+### 2.2 参与者
 
-主要角色如下。
-
-1. 抽象产品（Abstract Product）为构成系列产品的一组不同但相关的产品声明接口。
-2. 具体产品（Concrete Product）是抽象产品的多种不同类型实现。所有变体（维多利亚/现代）都必须实现相应的抽象产品（椅子/沙发）。
-3. 抽象工厂（Abstract Factory）接口声明了一组创建各种抽象产品的方法。
-4. 具体工厂（Concrete Factory）实现抽象工厂的构建方法。每个具体工厂都对应特定产品变体，且仅创建此种产品变体。
-5. 尽管具体工厂会对具体产品进行初始化，其构建方法签名必须返回相应的抽象产品。这样，使用工厂类的客户端代码就不会与工厂创建的特定产品变体耦合。客户端（Client）只需通过抽象接口调用工厂和产品对象，就能与任何具体工厂/产品变体交互。
+1. **抽象产品**（Abstract Product）为构成系列产品的一组不同但相关的产品声明接口。
+2. **具体产品**（Concrete Product）是抽象产品的多种不同类型实现。所有变体（维多利亚/现代）都必须实现相应的抽象产品（椅子/沙发）。
+3. **抽象工厂**（Abstract Factory）接口声明了一组创建各种抽象产品的方法。
+4. **具体工厂**（Concrete Factory）实现抽象工厂的构建方法。每个具体工厂都对应特定产品变体，且仅创建此种产品变体。
 
 
 
+## 3 模式分析
+
+
+
+
+
+## 4 适用环境
+
+- 一个系统不应当依赖于产品类实例如何被创建、组合和表达的细节，这对于所有类型的工厂模式都是重要的。
+- 系统中有多于一个的产品族，而每次只使用其中某一产品族。
+- 属于同一个产品族的产品将在一起使用，这一约束必须在系统的设计中体现出来。
+- 系统提供一个产品类的库，所有的产品以同样的接口出现，从而使客户端不依赖于具体实现。
+
+
+
+## 5 代码实现
+
+[https://github.com/august295/DesignPatternCode](https://github.com/august295/DesignPatternCode)
+
+
+
+## 参考
+
+[1] [https://refactoringguru.cn/design-patterns/abstract-factory](https://refactoringguru.cn/design-patterns/abstract-factory)
+
+[2] [https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/abstract_factory.html](https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/abstract_factory.html)

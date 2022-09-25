@@ -14,7 +14,7 @@
 
 ### 2.1 结构图
 
-![单例模式结构](singleton.assets/structure-zh.png)
+![singleton.png](singleton.assets/singleton.png)
 
 
 

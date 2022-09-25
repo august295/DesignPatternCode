@@ -2,12 +2,16 @@
 
 Director::Director()
 {
-
+	PriBuilder = nullptr;
 }
 
 Director::~Director()
 {
-	
+	if (PriBuilder)
+	{
+		delete PriBuilder;
+		PriBuilder = nullptr;
+	}
 }
 
 Product * Director::Construct()
