@@ -1,28 +1,29 @@
-#include "facade.h"
+#include "Facade.h"
 
-facade::facade()
+Facade::Facade()
 {
 }
 
-facade::~facade()
+Facade::Facade(SystemA * systemA, SystemB * systemB, SystemC * systemC)
+	: PPriSystemA(systemA)
+	, PPriSystemB(systemB)
+	, PPriSystemC(systemC)
 {
-    delete m_sys_1;
-    delete m_sys_2;
-    delete m_sys_3;
+
 }
 
-facade::facade(system_1 * sys_1,
-               system_2 * sys_2,
-               system_3 * sys_3)
+void Facade::WrapOperation()
 {
-    m_sys_1 = sys_1;
-    m_sys_2 = sys_2;
-    m_sys_3 = sys_3;
+	std::cout << "WrapOperation Start" << std::endl;
+	PPriSystemA->OperationA();
+	PPriSystemB->OperationB();
+	PPriSystemC->OperationC();
+	std::cout << "WrapOperation End" << std::endl;
 }
 
-void facade::operation()
+Facade::~Facade()
 {
-    m_sys_1->operation_1();
-    m_sys_2->operation_2();
-    m_sys_3->operation_3();
+	delete PPriSystemA;
+    delete PPriSystemB;
+    delete PPriSystemC;
 }

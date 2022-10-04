@@ -1,26 +1,25 @@
 #ifndef __FACADE_H__
 #define __FACADE_H__
 
-#include "system_1.h"
-#include "system_2.h"
-#include "system_3.h"
+#include <iostream>
 
-class facade
+#include "SystemA.h"
+#include "SystemB.h"
+#include "SystemC.h"
+
+class Facade
 {
 public:
-    facade();
-    ~facade();
+    Facade();
+	Facade(SystemA * systemA, SystemB * systemB, SystemC * systemC);
+    ~Facade();
 
-    facade(system_1 * sys_1,
-           system_2 * sys_2,
-           system_3 * sys_3);
-
-    void operation(); /* 组合模式 */
+    void WrapOperation(); /* 组合操作 */
 
 private:
-    system_1 * m_sys_1;
-    system_2 * m_sys_2;
-    system_3 * m_sys_3;
+	SystemA * PPriSystemA;
+	SystemB * PPriSystemB;
+    SystemC * PPriSystemC;
 };
 
 #endif

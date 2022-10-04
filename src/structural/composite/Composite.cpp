@@ -10,6 +10,11 @@ Composite::~Composite()
 
 }
 
+std::list<IComponent*> Composite::GetChildren()
+{
+	return PriComList;
+}
+
 bool Composite::IsComposite()
 {
 	return true;
