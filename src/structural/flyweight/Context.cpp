@@ -1,0 +1,25 @@
+#include <iostream>
+
+#include "Context.h"
+
+Context::Context()
+{
+}
+
+Context::Context(const SharedState &sharedState, const UniqueState &uniqueState)
+{
+	PPriFlyweight = FlyweightFactory::GetInstance()->GetFlyweight(sharedState);
+	PPriUniqueState = new UniqueState(uniqueState);
+}
+
+Context::~Context()
+{
+	delete PPriUniqueState;
+	PPriUniqueState = nullptr;
+}
+
+void Context::Operation()
+{
+	PPriFlyweight->Operation();
+	std::cout << " and " << *PPriUniqueState;
+}
