@@ -28,6 +28,7 @@ public:
 	Context(const SharedState &sharedState, const UniqueState &uniqueState);
     ~Context();
 
+	Flyweight* GetFlyweight();
     void Operation();
 
 private:

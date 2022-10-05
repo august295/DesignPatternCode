@@ -18,6 +18,11 @@ Context::~Context()
 	PPriUniqueState = nullptr;
 }
 
+Flyweight* Context::GetFlyweight()
+{
+	return PPriFlyweight;
+}
+
 void Context::Operation()
 {
 	PPriFlyweight->Operation();
