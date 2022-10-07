@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "command_open.h"
-#include "command_shut.h"
-#include "invoker.h"
+#include "CommandOpen.h"
+#include "CommandShut.h"
+#include "Invoker.h"
 
 /**
  * 1. 命令模式
@@ -12,7 +12,7 @@
  *      大部分情况下，它被用于代替包含行为的参数化 UI 元素的回调函数，
  *      此外还被用于对任务进行排序和记录操作历史记录等。
  * 3. 模式结构
- *      Command: 抽象命令类
+ *      ICommand: 抽象命令类
  *      ConcreteCommand: 具体命令类
  *      Invoker: 调用者
  *      Receiver: 接收者
@@ -20,21 +20,26 @@
  */
 int main()
 {
-    invoker * invok = new invoker();
+	std::shared_ptr<Receiver> ptrReceiver = std::make_shared<Receiver>();
+    Invoker * invoker = new Invoker();
 
     /* 指令开 */
-    command * cmd_open = new command_open(new receiver());
+    ICommand * cmdOpen = new CommandOpen(ptrReceiver);
     /* 指令关 */
-    command * cmd_shut = new command_shut(new receiver());
+    ICommand * cmdShut = new CommandShut(ptrReceiver);
 
     /* 单个指令 */
-    invok->set_command(cmd_open);
-    invok->exe_command();
+	invoker->SetCommand(cmdOpen);
+	invoker->ExeCommand();
     std::cout << std::endl;
     /* 多个指令 */
-    invok->set_command(cmd_open);
-    invok->set_command(cmd_shut);
-    invok->exe_command();
+	invoker->SetCommand(cmdOpen);
+	invoker->SetCommand(cmdShut);
+	invoker->ExeCommand();
+
+	delete cmdOpen;
+	delete cmdShut;
+	delete invoker;
 
     return 0;
 }

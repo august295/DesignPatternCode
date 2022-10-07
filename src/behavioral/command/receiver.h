@@ -3,18 +3,17 @@
 
 #include <iostream>
 
-class receiver
+class Receiver
 {
 public:
-    receiver();
-    ~receiver();
+    Receiver();
+    ~Receiver();
 
-    bool get_state(); /* 获取 */
-    void shut();      /* 指令开 */
-    void open();      /* 指令关 */
+    void Open();
+    void Shut();
 
 private:
-    bool m_state;
+    bool PriState;
 };
 
 #endif

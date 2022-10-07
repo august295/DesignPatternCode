@@ -1,23 +1,23 @@
-#include "invoker.h"
+#include "Invoker.h"
 
-invoker::invoker()
+Invoker::Invoker()
 {
 }
 
-invoker::~invoker()
+Invoker::~Invoker()
 {
 }
 
-void invoker::set_command(command * cmd)
+void Invoker::SetCommand(ICommand * cmd)
 {
-    m_command.push(cmd);
+    CommandQueue.push(cmd);
 }
 
-void invoker::exe_command()
+void Invoker::ExeCommand()
 {
-    while (!m_command.empty())
+    while (!CommandQueue.empty())
     {
-        m_command.front()->execute();
-        m_command.pop();
+        CommandQueue.front()->Execute();
+        CommandQueue.pop();
     }
 }

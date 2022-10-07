@@ -1,25 +1,20 @@
-#include "receiver.h"
+#include "Receiver.h"
 
-receiver::receiver()
+Receiver::Receiver()
 {
-    m_state = false;
+    PriState = false;
 }
 
-receiver::~receiver()
+Receiver::~Receiver()
 {
 }
 
-bool receiver::get_state()
+void Receiver::Shut()
 {
-    return m_state;
+    PriState = false;
 }
 
-void receiver::shut()
+void Receiver::Open()
 {
-    m_state = false;
-}
-
-void receiver::open()
-{
-    m_state = true;
+    PriState = true;
 }

@@ -3,19 +3,19 @@
 
 #include <queue>
 
-#include "command.hpp"
+#include "ICommand.hpp"
 
-class invoker
+class Invoker
 {
 public:
-    invoker();
-    ~invoker();
+    Invoker();
+    ~Invoker();
 
-    void set_command(command * cmd); /* 设置命令 */
-    void exe_command();              /* 执行命令 */
+    void SetCommand(ICommand * cmd); /* 设置命令 */
+    void ExeCommand();              /* 执行命令 */
 
 private:
-    std::queue<command *> m_command;
+    std::queue<ICommand *> CommandQueue;
 };
 
 #endif
