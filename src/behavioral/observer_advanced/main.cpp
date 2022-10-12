@@ -1,57 +1,23 @@
 #include <iostream>
 
-#include "dispatcher_implement.h"
-
-class Reciver1 : public ReciverInterface
-{
-    virtual void DealPacket(DataHeader * header)
-    {
-        switch (header->pub_type)
-        {
-        case GAME :
-            std::cout << "Reciver1 [" << (char*)((DataContent *)header)->pub_content << "] game update" << std::endl;
-            break;
-        case FICTION :
-            std::cout << "Reciver1 [" << (char*)((DataContent *)header)->pub_content << "] fiction update" << std::endl;
-            break;
-        default :
-            std::cout << "Reciver1 [" << (char*)((DataContent *)header)->pub_content << "] unknown" << std::endl;
-            break;
-        }
-    }
-};
-
-class Reciver2 : public ReciverInterface
-{
-    virtual void DealPacket(DataHeader * header)
-    {
-        switch (header->pub_type)
-        {
-        case GAME :
-            std::cout << "Reciver2 [" << (char*)((DataContent *)header)->pub_content << "] game update" << std::endl;
-            break;
-        case FICTION :
-            std::cout << "Reciver2 [" << (char*)((DataContent *)header)->pub_content << "] fiction update" << std::endl;
-            break;
-        default :
-            std::cout << "Reciver2 [" << (char*)((DataContent *)header)->pub_content << "] unknown" << std::endl;
-            break;
-        }
-    }
-};
+#include "ConcretePublisher.h"
+#include "SubscriberA.h"
+#include "SubscriberB.h"
 
 int main()
 {
-    Reciver1 * r1 = new Reciver1();
-    Reciver2 * r2 = new Reciver2();
-    DispatcherInterface::GetInstance()->Register(r1);          // 接收全部
-    DispatcherInterface::GetInstance()->Register(r2, FICTION); // 接收小说
-    DataContent d1(GAME, "Civilization VI");
-    DispatcherInterface::GetInstance()->Dispatch(&d1);
-    DataContent d2(FICTION, "Doctor Who");
-    DispatcherInterface::GetInstance()->Dispatch(&d2);
-    DataContent d3(COMIC, "Luo Xiaohei");
-    DispatcherInterface::GetInstance()->Dispatch(&d3);
+	// 继承类内部实现注册
+	SubscriberA a;
+	SubscriberB b;
+
+	DataContent d1(GAME, "Civilization VI");
+	DataContent d2(FICTION, "Doctor Who");
+	DataContent d3(COMIC, "Luo Xiaohei");
+	DataContent d4(-1, "Nothing");
+	Publisher::GetInstance()->Dispatch(&d1);
+	Publisher::GetInstance()->Dispatch(&d2);
+	Publisher::GetInstance()->Dispatch(&d3);
+	Publisher::GetInstance()->Dispatch(&d4);
 
     return 0;
 }

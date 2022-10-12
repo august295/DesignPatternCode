@@ -12,7 +12,6 @@ enum DataType
 };
 
 #pragma pack(1)
-
 // 数据包
 typedef struct DataHeader
 {

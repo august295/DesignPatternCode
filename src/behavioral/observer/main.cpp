@@ -33,5 +33,10 @@ int main()
     sub->set_decimal(20);
     sub->notify();
 
+	delete bin;
+	delete oct;
+	delete hex;
+	delete sub;
+
     return 0;
 }
