@@ -36,11 +36,15 @@ typedef struct DataContent : DataHeader
 		uint32_t len = (uint32_t)content.size() + 1;
         pub_type   = type;
         pub_length = sizeof(DataHeader) + len;
-		pub_content = calloc(1, len);
+		pub_content = malloc(len);
         memcpy(pub_content, content.c_str(), len);
     }
 
-    ~DataContent() {}
+    ~DataContent() 
+	{
+		free(pub_content);
+		pub_content = nullptr;
+	}
 
     DataContent & operator=(const DataContent & dataContent)
     {

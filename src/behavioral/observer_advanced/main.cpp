@@ -18,6 +18,5 @@ int main()
 	Publisher::GetInstance()->Dispatch(&d2);
 	Publisher::GetInstance()->Dispatch(&d3);
 	Publisher::GetInstance()->Dispatch(&d4);
-
     return 0;
 }
