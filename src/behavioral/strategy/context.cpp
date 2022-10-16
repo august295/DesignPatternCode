@@ -1,29 +1,31 @@
-#include "context.h"
+#include <iostream>
 
-context::context()
+#include "Context.h"
+
+Context::Context()
+	: PtrStrategy(nullptr)
 {
+	
 }
 
-context::~context()
+Context::~Context()
 {
+
 }
 
-context::context(strategy * str)
+void Context::SetStrategy(std::unique_ptr<IStrategy> && ptrStrategy)
 {
-    m_strategy = str;
+	PtrStrategy = std::move(ptrStrategy);
 }
 
-void context::set_strategy(strategy * str)
+void Context::DoSomething(std::vector<int > vec)
 {
-    m_strategy = str;
-}
-
-strategy * context::get_strategy()
-{
-    return m_strategy;
-}
-
-void context::do_algorithm(int num)
-{
-    m_strategy->algorithm(num);
+	if (PtrStrategy)
+	{
+		PtrStrategy->Algorithm(vec);
+	}
+	else
+	{
+		std::cout << "Context: Strategy isn't set\n";
+	}
 }

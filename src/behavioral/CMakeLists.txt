@@ -7,6 +7,8 @@ add_subdirectory(memento)
 add_subdirectory(observer)
 add_subdirectory(observer_advanced)
 add_subdirectory(state)
+add_subdirectory(strategy)
+
 
 # 衍生模式
 add_subdirectory(blackboard)
