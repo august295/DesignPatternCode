@@ -8,6 +8,7 @@ add_subdirectory(observer)
 add_subdirectory(observer_advanced)
 add_subdirectory(state)
 add_subdirectory(strategy)
+add_subdirectory(template)
 
 
 # 衍生模式
