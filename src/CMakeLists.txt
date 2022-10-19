@@ -1,5 +1,3 @@
-# 包含子目录
-
 # 创建型
 add_subdirectory(creational)
 
