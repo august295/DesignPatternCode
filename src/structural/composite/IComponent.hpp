@@ -9,7 +9,7 @@ public:
 	IComponent() {};
 	virtual ~IComponent() {};
 
-	// »ñÈ¡¸¸½Úµã
+	// èŽ·å–çˆ¶èŠ‚ç‚¹
 	void SetParent(IComponent* pCom) { this->PPubParent = pCom; };
 	IComponent* GetParent() { return this->PPubParent; };
 

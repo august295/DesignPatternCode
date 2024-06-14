@@ -7,7 +7,7 @@ public:
     Prototype(){};
     virtual ~Prototype(){};
 
-	/* ¹Ø¼üÔ­ÐÍÄ£Ê½º¯Êý£¬¸´ÖÆ×ÔÉí */
+	/* å…³é”®åŽŸåž‹æ¨¡å¼å‡½æ•°ï¼Œå¤åˆ¶è‡ªèº« */
     virtual Prototype * Clone() = 0;
 };
 

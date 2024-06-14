@@ -1,8 +1,8 @@
 #ifndef __COMMON_H__
 #define __COMMON_H__
 
-#include <cstdint>
-#include <cstring>
+#include <stdint.h>
+#include <string>
 
 enum DataType
 {

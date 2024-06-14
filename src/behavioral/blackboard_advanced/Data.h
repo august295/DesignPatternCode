@@ -28,9 +28,9 @@ typedef struct DataCalc
 
 typedef struct DataContent
 {
-	uint32_t pub_type;   // 类型
-	uint32_t pub_length; // 长度
-	void* pub_content;   // 内容
+	uint32_t pub_type;   // 绫诲瀷
+	uint32_t pub_length; // 闀垮害
+	void* pub_content;   // 鍐呭
 
 	DataContent()
 	{

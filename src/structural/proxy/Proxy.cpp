@@ -4,8 +4,8 @@
 
 Proxy::Proxy()
 {
-	// ÓÐÈË¾õµÃ Service ¶ÔÏóµÄ´´½¨Ó¦¸ÃÊÇÔÚ main ÖÐÊµÏÖ£»ÎÒÈÏÎª Service Ó¦¸Ã
-	// ¶ÔÓÃ»§ÊÇÍ¸Ã÷µÄ£¬ÓÃ»§ËùÃæ¶ÔµÄ½Ó¿Ú¶¼ÊÇÍ¨¹ý´úÀíµÄ£»ÕâÑù²ÅÊÇÕæÕýµÄ´úÀí£» 
+	// æœ‰äººè§‰å¾— Service å¯¹è±¡çš„åˆ›å»ºåº”è¯¥æ˜¯åœ¨ main ä¸­å®žçŽ°ï¼›æˆ‘è®¤ä¸º Service åº”è¯¥
+	// å¯¹ç”¨æˆ·æ˜¯é€æ˜Žçš„ï¼Œç”¨æˆ·æ‰€é¢å¯¹çš„æŽ¥å£éƒ½æ˜¯é€šè¿‡ä»£ç†çš„ï¼›è¿™æ ·æ‰æ˜¯çœŸæ­£çš„ä»£ç†ï¼› 
 	PPriService = new Service();
 }
 
