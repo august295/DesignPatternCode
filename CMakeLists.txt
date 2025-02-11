@@ -1,5 +1,5 @@
 # 要求最低Cmake版本
-cmake_minimum_required(VERSION 3.10.0)
+cmake_minimum_required(VERSION 3.15.0)
 
 # 项目名称
 project(DesignPatternCode)
@@ -19,22 +19,23 @@ set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "CMakePredefinedTargets")
 
 # 设置根目录
 set(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-set(BUILD_DIR ${ROOT_DIR}/build)
+set(BUILD_DIR ${CMAKE_BINARY_DIR})
 
-# 输出目录
-if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${BUILD_DIR}/bin) # .lib and .a
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG ${BUILD_DIR}/bin) # .so and .dylib
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${BUILD_DIR}/bin) # .exe and .dll
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${BUILD_DIR}/bin) # .lib and .a
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE ${BUILD_DIR}/bin) # .so and .dylib
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${BUILD_DIR}/bin) # .exe and .dll
-elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${BUILD_DIR}/bin) # .lib and .a
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${BUILD_DIR}/bin) # .so and .dylib
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BUILD_DIR}/bin) # .exe and .dll
-endif()
+# 为多种构建类型设置输出目录
+set(CONFIGURATION_TYPES "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
+
+foreach(CONFIGURATION_TYPE ${CONFIGURATION_TYPES})
+    string(TOUPPER ${CONFIGURATION_TYPE} TYPE)
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${TYPE} ${BUILD_DIR}/lib) # .lib and .a
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_${TYPE} ${BUILD_DIR}/lib) # .so and .dylib
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${TYPE} ${BUILD_DIR}/bin) # .exe and .dll
+endforeach()
+
+# 类型后缀
+set(CMAKE_RELEASE_POSTFIX "")
 set(CMAKE_DEBUG_POSTFIX "d")
+set(CMAKE_MINSIZEREL_POSTFIX "")
+set(CMAKE_RELWITHDEBINFO_POSTFIX "")
 
 # 添加子目录，子目录下必须有CMakeLists.txt
 add_subdirectory(src)

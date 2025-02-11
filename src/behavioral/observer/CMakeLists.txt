@@ -1,8 +1,6 @@
 # 引入外部函数
-include(${ROOT_DIR}/module.cmake)
+include(${ROOT_DIR}/cmake/module.cmake)
 
-# 获取绝对路径，去掉 "/"
-string(REGEX REPLACE "/$" "" CURRENT_FOLDER_ABSOLUTE ${CMAKE_CURRENT_SOURCE_DIR})
-
-message(STATUS ${CMAKE_CURRENT_SOURCE_DIR})
-create_target(${CURRENT_FOLDER_ABSOLUTE})
+# 创建项目
+set(ProjectName "observer")
+CreateTarget(${ProjectName} "Exe" "behavioral")

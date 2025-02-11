@@ -11,14 +11,19 @@
 
 ## 2 使用
 
-- Cmake 3.1.0
-- Visual Studio 2017
+- Cmake 3.15.0
+- Visual Studio 2022
 
 ### 2.1 cmake-gui
 
 直接使用 `cmake-gui` 生成项目。
 
-### 2.2 bat
+### 2.2 cmd
 
-如果配置好 `cmake` 环境变量（一般安装后自动配置），可以使用 `cmake-vs2017.bat` 生成项目。
+```shell
+# VS2017 x64
+cmake -B"build" -G"Visual Studio 15 2017 Win64"
+# VS2022 x64
+cmake -B"build" -G"Visual Studio 17 2022"
+```
 

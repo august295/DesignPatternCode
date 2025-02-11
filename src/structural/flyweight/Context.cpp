@@ -4,27 +4,29 @@
 
 Context::Context()
 {
+    PPriFlyweight   = nullptr;
+    PPriUniqueState = nullptr;
 }
 
-Context::Context(const SharedState &sharedState, const UniqueState &uniqueState)
+Context::Context(const SharedState& sharedState, const UniqueState& uniqueState)
 {
-	PPriFlyweight = FlyweightFactory::GetInstance()->GetFlyweight(sharedState);
-	PPriUniqueState = new UniqueState(uniqueState);
+    PPriFlyweight   = FlyweightFactory::GetInstance()->GetFlyweight(sharedState);
+    PPriUniqueState = new UniqueState(uniqueState);
 }
 
 Context::~Context()
 {
-	delete PPriUniqueState;
-	PPriUniqueState = nullptr;
+    delete PPriUniqueState;
+    PPriUniqueState = nullptr;
 }
 
 Flyweight* Context::GetFlyweight()
 {
-	return PPriFlyweight;
+    return PPriFlyweight;
 }
 
 void Context::Operation()
 {
-	PPriFlyweight->Operation();
-	std::cout << " and " << *PPriUniqueState;
+    PPriFlyweight->Operation();
+    std::cout << " and " << *PPriUniqueState;
 }
