@@ -1,6 +1,5 @@
 # auto generated
-build
-include
+build*/
 
 # vscode
 .vscode
